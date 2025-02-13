@@ -1,6 +1,3 @@
-// Triad amplitude crossfade using triangle waves
-// Simple C major triad: C4, E4, G4
-
 // Create three triangle oscillators, each routed through a Gain, then to dac
 TriOsc osc1 =>  dac;
 TriOsc osc2 =>  dac;
@@ -20,10 +17,8 @@ Std.mtof(72) => osc4.freq; // G4
 0.4 => osc3.gain;
 0.5 => osc4.gain;
 
-
 // Total modulation duration: 5 seconds
 2::second => dur totalDur;
 
-
-// Hold the sound for an extra second before ending
+// Hold the soud for an extra second before ending
 totalDur => now;

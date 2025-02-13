@@ -1,4 +1,3 @@
-// --- Sine Tone Generator with ADSR Envelope ---
 fun void playToneWithADSR( float toneDuration, float freq )
 {
     // Split toneDuration equally between tone (active) and silence.
@@ -33,7 +32,6 @@ fun float hzToMel( float freq )
     return 2595.0 * ( Math.log( 1.0 + freq / 700.0 ) / Math.log( 10.0 ) );
 }
 
-// --- Function to Play Two Frequencies in Hertz ---
 // This function plays the first frequency then, after a 0.5-second gap, plays the second.
 fun void playTwoFrequenciesHz( float f1, float f2, float toneDuration )
 {   
@@ -48,15 +46,12 @@ fun void playTwoFrequenciesHz( float f1, float f2, float toneDuration )
     playToneWithADSR( toneDuration, f2 );
 }
 
-// --- Helper Function to Convert Mel to Hertz ---
 // The standard conversion from mel to Hz is: f = 700 * (10^(mel/2595) - 1)
 fun float melToHz( float mel )
 {
     return 700.0 * ( Math.pow( 10, mel / 2595.0 ) - 1 );
 }
 
-// --- Function to Play Two Frequencies Given in the Mel Scale ---
-// This function converts each mel value to Hertz, then plays them with a 0.5-second gap.
 fun void playTwoFrequenciesMel( float mel1, float mel2, float toneDuration )
 {
     // Convert mel values to Hertz.
@@ -71,17 +66,12 @@ fun void playTwoFrequenciesMel( float mel1, float mel2, float toneDuration )
     playToneWithADSR( toneDuration, f2 );
 }
 
-// --- Main Script ---
-// Example: Playing two frequencies given in Hertz.
-// <<< "=== Playing Tones in Hertz ===" >>>;
 playTwoFrequenciesHz( 400, 500, 1.0 );
 3::second => now;
 playTwoFrequenciesHz( 4000, 4100, 1.0 );
 3::second => now;
 
 
-// <<< "=== Playing Tones in Mel Scale ===" >>>;
-// playTwoFrequenciesMel( 600.0, 700.0, 1.0 );
-playTwoFrequenciesMel( 400, 500, 1.0 );
-3::second => now;
-playTwoFrequenciesMel( 2200, 2300, 1.0 );
+// playTwoFrequenciesMel( 400, 500, 1.0 );
+// 3::second => now;
+// playTwoFrequenciesMel( 2200, 2300, 1.0 );

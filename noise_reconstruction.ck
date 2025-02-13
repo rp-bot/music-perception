@@ -1,5 +1,3 @@
-
-// Function to continuously play white noise in the background
 fun void whiteNoiseBackground(float gain, dur releaseTime) {
     Noise n => dac;
     // Adjust the gain to set how "loud" the white noise is.
@@ -8,7 +6,6 @@ fun void whiteNoiseBackground(float gain, dur releaseTime) {
     releaseTime => now;
   
 }
-// Function to play a tone with ADSR envelope
 fun void playToneWithADSR(float toneDuration, float freq) {
     toneDuration * 0.75 => float activeTime;
     toneDuration * 0.25 => float silenceTime;
@@ -43,10 +40,6 @@ fun void playToneWithADSR(float toneDuration, float freq) {
 
 }
 
-
-
-
-
 // Twinkle Twinkle Little Star:
 [ 60, 60, 67, 67, 69, 69, 67, 
   65, 65, 64, 64, 62, 62, 60, 
@@ -54,12 +47,9 @@ fun void playToneWithADSR(float toneDuration, float freq) {
   60, 60, 67, 67, 69, 69, 67,
   65, 65, 64, 64, 62, 62, 60,] @=> int notes[];
 
-// Set the tone duration (in seconds) for each note.
 float toneDuration;
 
-// Loop through the sequence and play each note.
 for (0 => int i; i < notes.cap(); i++) {
-    // Convert MIDI note to frequency
     Std.mtof( notes[i] ) => float freq;
     if (i%7==6){
         1 =>  toneDuration;

@@ -47,9 +47,9 @@ fun void playSequence(float totalTime, float r1, float r2, float r3)
 2.0 => float totalTime;  
 
 
-2.0 => float r1;         
-1.0 => float r2;         
-1.0 => float r3;         
+2 => float r1;         
+1 => float r2;         
+2.0 => float r3;         
 
 
 for(0 => int i; i < 10; i++){
